@@ -2,6 +2,7 @@ package ua.edu.ucu.apps.tempseries;
 import java.util.InputMismatchException; 
 
 public class TemperatureSeriesAnalysis {
+    private static final double MIN_TEMPERATURE = -273; 
     private double[] arraytemp = {};
     public TemperatureSeriesAnalysis() {
 
@@ -180,8 +181,7 @@ public class TemperatureSeriesAnalysis {
 
     public int addTemps(double... temps) {
         for (double el : arraytemp) {
-            int upperBound = -272;
-            if (el <= upperBound) {
+            if (el < MIN_TEMPERATURE) {
                 throw new InputMismatchException();
             }
         }
