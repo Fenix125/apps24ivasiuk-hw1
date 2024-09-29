@@ -9,11 +9,6 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
-        for (double el : temperatureSeries){
-            if (el < -273){
-                throw new InputMismatchException();
-            }
-        }
         this.arraytemp = temperatureSeries;
     }
 
@@ -179,6 +174,11 @@ public class TemperatureSeriesAnalysis {
     }
 
     public int addTemps(double... temps) {
+        for (double el : arraytemp){
+            if (el < -273){
+                throw new InputMismatchException();
+            }
+        }
         int total = arraytemp.length + temps.length;
         double[] new_arr = new double[arraytemp.length + temps.length];
         System.arraycopy(arraytemp, 0, new_arr, 0, arraytemp.length);
