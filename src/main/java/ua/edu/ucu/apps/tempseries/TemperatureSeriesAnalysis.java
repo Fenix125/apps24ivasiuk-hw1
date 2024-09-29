@@ -8,7 +8,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
-        this.arraytemp = temperatureSeries;
+        arraytemp = temperatureSeries.clone();
     }
 
     public double average() {
@@ -155,7 +155,7 @@ public class TemperatureSeriesAnalysis {
         if (arraytemp.length == 0) {
             throw new IllegalArgumentException();
         }
-        double[] res = arraytemp;
+        double[] res = arraytemp.clone();
         for (int i = 0; i < res.length; i++) {
             double key = res[i];
             int j = i - 1;
@@ -170,7 +170,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TempSummaryStatistics summaryStatistics() {
-        if (arraytemp.length == 0 ) {
+        if (arraytemp.length == 0) {
             throw new IllegalArgumentException();
         }
         TempSummaryStatistics summaryStatistics
@@ -180,7 +180,8 @@ public class TemperatureSeriesAnalysis {
 
     public int addTemps(double... temps) {
         for (double el : arraytemp) {
-            if (el <= -272.0) {
+            int upperBound = -272;
+            if (el <= upperBound) {
                 throw new InputMismatchException();
             }
         }
