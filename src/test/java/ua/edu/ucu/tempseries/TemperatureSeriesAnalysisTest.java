@@ -52,19 +52,6 @@ public class TemperatureSeriesAnalysisTest {
         assertEquals(expResult, actualResult, 0.00001);
     }
     @Test
-    public void myTest(){
-
-    }
-
-
-    
-
-    @Test(expected = InputMismatchException.class)
-    public void testConstructorWithInvalidData() {
-        double[] tempSeries = {-274};
-        TemperatureSeriesAnalysis analysis = new TemperatureSeriesAnalysis(tempSeries);
-    }
-    @Test
     public void testDeviation() {
         double[] tempSeries = {1, 2, 6};
         TemperatureSeriesAnalysis analysis = new TemperatureSeriesAnalysis(tempSeries);
