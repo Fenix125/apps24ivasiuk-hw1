@@ -14,9 +14,9 @@ public class TempSummaryStatistics {
     }   
     @Override
     public String toString() {
-        return "Avg.temp: " + avgTemp +
-               "\nDev.temp: " + devTemp +
-               "\nMin.temp: " + minTemp +
-               "\nMax.temp: " + maxTemp;
+        return "Avg.temp: " + avgTemp 
+                + "\nDev.temp: " + devTemp
+                + "\nMin.temp: " + minTemp 
+                + "\nMax.temp: " + maxTemp;
     }
 }

@@ -29,7 +29,7 @@ public class TemperatureSeriesAnalysis {
         double dev = 0;
         double mean = average();
         for (double el : arraytemp) {
-            dev += Math.pow(el - mean, 2);
+            dev += (el - mean)*(el - mean);
         }
         dev = dev / (arraytemp.length-1);
         return Math.sqrt(dev);
@@ -41,7 +41,7 @@ public class TemperatureSeriesAnalysis {
         }
         double min = arraytemp[0];
         for (double el : arraytemp) {
-            if (el < min){
+            if (el < min) {
                 min = el;
             }
         }
@@ -54,7 +54,7 @@ public class TemperatureSeriesAnalysis {
         }
         double max = arraytemp[0];
         for (double el : arraytemp) {
-            if (el > max){
+            if (el > max) {
                 max = el;
             }
         }
@@ -170,16 +170,17 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TempSummaryStatistics summaryStatistics() {
-        if (arraytemp.length == 0 ){
+        if (arraytemp.length == 0 ) {
             throw new IllegalArgumentException();
         }
-        TempSummaryStatistics summaryStatistics = new TempSummaryStatistics(arraytemp);
+        TempSummaryStatistics summaryStatistics
+        = new TempSummaryStatistics(arraytemp);
         return summaryStatistics;
     }
 
     public int addTemps(double... temps) {
         for (double el : arraytemp) {
-            if (el < -273){
+            if (el <= -272.0) {
                 throw new InputMismatchException();
             }
         }
